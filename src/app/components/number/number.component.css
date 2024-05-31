@@ -1,0 +1,14 @@
+.primary-content {
+    padding-bottom: 10px;
+}
+
+
+.copy-clipboard-button {
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+}

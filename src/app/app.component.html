@@ -1,0 +1,51 @@
+<div class="bg-gradient-to-b from-base-100">
+  <div class="mx-10 my-10">
+    <app-title>{{strings.generatorTitle}}</app-title>
+    <app-number (onTap)="onCopyToClipClick($event)">{{saidNumber$}}</app-number>
+    <div class="text-3xl font-semibold mb-4">Configuration</div>
+    <div class="grid md:grid-cols-3 md:grid-rows-2 grid-cols-2 grid-rows-3 md:max-h-72 max-h-[30rem]">
+      <app-dropdown placeholder="Day" (onSelection)="onDaySelection($event)" title="Day:"
+        [options]="days$"></app-dropdown>
+      <app-dropdown placeholder="Month" (onSelection)="onMonthSelection($event)" title="Month:"
+        [options]="months$"></app-dropdown>
+      <app-dropdown placeholder="Year" (onSelection)="onYearSelection($event)" title="Year:"
+        [options]="year$"></app-dropdown>
+      <div class="text-xl pl-1 font-semibold">
+        Gender:
+        <div class="join grid grid-cols-1 w-52 pt-2.5">
+          <div>
+            <input class="join-item btn btn-square max-w-[10rem] min-w-[5rem]" type="radio" value="5"
+              [(ngModel)]="selectedGender$" name="gender" aria-label="Male" checked />
+            <input class="join-item btn btn-square w-24" type="radio" value="4" name="gender"
+              [(ngModel)]="selectedGender$" aria-label="Female" />
+          </div>
+        </div>
+      </div>
+      <div class="text-xl pl-1 font-semibold">
+        Type:
+        <div class="join grid grid-cols-1 w-52 pt-2.5">
+          <div>
+            <input class="join-item btn btn-square w-24" type="radio" value="0" name="type" aria-label="Citizen"
+              [(ngModel)]="selectedType$" checked />
+            <input class="join-item btn btn-square w-24" type="radio" value="1" name="type" [(ngModel)]="selectedType$"
+              aria-label="Resident" />
+          </div>
+        </div>
+      </div>
+      <div class="text-xl pl-1 font-semibold">
+        Sequence:
+        <div class="pt-2.5">
+          <input type="range" min="000" max="999" value="{{range$}}" class="range range-primary"
+            (input)="onRangeChange($event)" />
+          <span class="range-indicator">{{range$}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="grid md:grid-cols-4 grid-rows-3 gap-4 place-content-center">
+      <div></div>
+      <button class="btn btn-primary btn-wide" (click)="onGenerateButtonClick($event)">Generate</button>
+      <button class="btn btn-outline btn-secondary btn-wide" (click)="onGenerateRandomClick($event)">Randomise</button>
+      <div></div>
+    </div>
+  </div>
+</div>
