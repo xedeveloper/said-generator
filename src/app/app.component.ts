@@ -6,7 +6,8 @@ import { NumberComponent } from './components/number/number.component';
 import { DropdownComponent, DropdownElement } from './components/dropdown/dropdown.component';
 import { FormsModule } from '@angular/forms';
 import { SaidGeneratorService } from './services/generator/said-generator.service';
-import { Clipboard, ClipboardModule } from '@angular/cdk/clipboard';
+import { Clipboard } from '@angular/cdk/clipboard';
+import { injectSpeedInsights } from '@vercel/speed-insights';
 
 
 @Component({
@@ -69,7 +70,9 @@ export class AppComponent {
     public strings: StringsService,
     private generator: SaidGeneratorService,
     private clipboard: Clipboard,
-  ) { }
+  ) {
+    injectSpeedInsights();
+  }
 
 
 
